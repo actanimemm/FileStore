@@ -1,85 +1,87 @@
 {
-    "name": "AutoFilter-Lucy",
-    "description": "When you going to send file on telegram channel this bot will save that in database, So you can search that easily in inline mode",
-    "stack": "container",
-    "keywords": [
-      "telegram",
-      "auto-filter",
-      "filter",
-      "best",
-      "indian",
-      "pyrogram",
-      "media",
-      "search",
-      "channel",
-      "index",
-      "inline"
-    ],
-    "website": "https://github.com/Codeflix-Bots/AutoFilter",
-    "repository": "https://github.com/Codeflix-Bots/AutoFilter",
-    "env": {
-        "BOT_TOKEN": {
-            "description": "Your bot token.",
-            "required": true
-        },
-        "API_ID": {
-            "description": "Get this value from https://my.telegram.org",
-            "required": true
-        },
-        "API_HASH": {
-            "description": "Get this value from https://my.telegram.org",
-            "required": true
-        },
-        "CHANNELS": {
-            "description": "Username or ID of channel or group. Separate multiple IDs by space.",
-            "required": false
-        },
-        "ADMINS": {
-            "description": "Username or ID of Admin. Separate multiple Admins by space.",
-            "required": true
-        },
-        "PICS": {
-            "description": "Add some telegraph link of pictures .",
-            "required": false
-        },
-        "LOG_CHANNEL": {
-            "description": "Bot Logs,Give a channel id with -100xxxxxxx",
-            "required": true
-        },
-        "AUTH_USERS": {
-            "description": "Username or ID of users to give access of inline search. Separate multiple users by space.\nLeave it empty if you don't want to restrict bot usage.",
-            "required": false
-        },
-        "AUTH_CHANNEL": {
-            "description": "ID of channel.Make sure bot is admin in this channel. Without subscribing this channel users cannot use bot.",
-            "required": false
-        },
-        "FQDN": {
-            "description": "Heroku url",
-            "required": false
-        },
-        "DATABASE_URI": {
-            "description": "mongoDB URI. Get this value from https://www.mongodb.com.",
-            "required": true
-        },
-        "DATABASE_NAME": {
-            "description": "Name of the database in mongoDB.",
-            "required": false
-        },
-        "COLLECTION_NAME": {
-            "description": "Name of the collections. Defaults to Telegram_files. If you are using the same database, then use different collection name for each bot",
-            "value": "Telegram_files",
-            "required": false
-        }
+  "name": "TG File Share/Sharing Bot",
+  "description": "file sharing bot store posts and it can access by special links",
+  "keywords": [
+    "telegram",
+    "file",
+    "sharing"
+  ],
+  "repository": "https://github.com/CodeXBotz/File-Sharing-Bot",
+  "logo": "https://ibb.co/FgPVtzw",
+  "env": {
+    "TG_BOT_TOKEN": {
+      "description": "Your Bot token, Get it from @Botfather",
+      "value": ""
     },
-    "addons": [],
-    "buildpacks": [{
-        "url": "heroku/python"
-    }],
-    "formation": {
-        "web": {
-            "quantity": 1,
-            "size": "eco"
-        }
+    "OWNER_ID": {
+      "description": "An integer of consisting of your owner ID",
+      "value": "1250450587"
+    },
+    "APP_ID":{
+      "description": "your app id, take it from my.telegram.org",
+      "value": ""
+    },
+    "DATABASE_URL": {
+      "description": "Paste your mongo db url",
+      "value": "url"
+    },
+    "DATABASE_NAME":{
+      "description": "Enter your DATABASE_NAME ",
+      "value": "filesharexbot"
+    },
+    "API_HASH":{
+      "description": "your api hash, take it from my.telegram.org",
+      "value": ""
+    },
+    "CHANNEL_ID":{
+      "description": "make a channel (database channel), then make the bot as admin in channel, and it's id",
+      "value": "-100"
+    },
+    "FORCE_SUB_CHANNEL_1":{
+      "description": "id of the channel or group, if you want enable force sub feature else put 0",
+      "value": "0"
+    },
+    "FORCE_SUB_CHANNEL_2":{
+      "description": "id of the channel or group, if you want enable force sub feature else put 0",
+      "value": "0"
+    },
+    "FORCE_SUB_CHANNEL_3":{
+      "description": "id of the channel or group, if you want enable force sub feature else put 0",
+      "value": "0"
+    },
+    "FORCE_SUB_CHANNEL_4":{
+      "description": "id of the channel or group, if you want enable force sub feature else put 0",
+      "value": "0"
+    },
+    "START_MESSAGE": {
+      "description": "Optional: start message of bot, use HTML parsemode format",
+      "value": "Hello {first}\n\nI can store private files in Specified Channel and other users can access it from special link."
+    },
+    "FORCE_SUB_MESSAGE": {
+      "description": "Optional: Force Sub message of bot, use HTML parsemode format",
+      "value": "Hello {first}\n\n<b>You need to join in my Channel/Group to use me\n\nKindly Please join Channel</b>"
+    },
+    "ADMINS": {
+      "description": "A space separated list of user_ids of Admins, they can only create links",
+      "value": "",
+      "required": false
+    },
+    "PROTECT_CONTENT": {
+      "description": "Protect contents from getting forwarded",
+      "value": "False",
+      "required": false
     }
+  },
+  "buildpacks": [
+    {
+      "url": "heroku/python"
+    }
+  ],
+  "formation": {
+    "worker": {
+      "quantity": 1,
+      "size": "eco"
+    }
+  }
 }
+
